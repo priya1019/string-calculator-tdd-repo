@@ -1,46 +1,82 @@
-# Getting Started with Create React App
+# 🧪 String Calculator TDD (React.js + Jest)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple **String Calculator** implemented using **Test-Driven Development (TDD)** in a **React.js** environment. The calculator takes a string of numbers separated by delimiters and returns their sum.
 
-## Available Scripts
+## ✅ Features
 
-In the project directory, you can run:
+- Add function that:
+  - Returns `0` for an empty string.
+  - Returns a number for single input.
+  - Returns the sum of comma-separated numbers.
+  - Supports `\n` (newline) as a delimiter.
+  - Supports custom delimiters using the format `//[delimiter]\n[numbers]`.
+  - Throws an error for negative numbers, listing all negatives.
 
-### `npm start`
+## 🔧 Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [React](https://reactjs.org/)
+- [Jest](https://jestjs.io/)
+- [Create React App](https://create-react-app.dev/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 📁 Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+string-calculator-tdd/
+├── src/
+│ ├── App.js
+│ ├── utils/
+│ │ ├── stringCalculator.js
+│ │ └── stringCalculator.test.js
+├── package.json
+└── README.md
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Clone the repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git clone https://github.com/your-username/string-calculator-tdd.git
+cd string-calculator-tdd
 
-### `npm run eject`
+npm install
+npm test
+Jest will watch your test files and re-run tests automatically when you make changes.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+🧪 Test-Driven Development Process
+The application was built using TDD in the following steps:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✅ Test for empty string input ("" → 0)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+✅ Test for single number input ("5" → 5)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+✅ Support for two comma-separated numbers
 
-## Learn More
+✅ Support for multiple comma-separated numbers
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+✅ Support for newline characters (\n)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+✅ Support for custom delimiters (//;\n1;2)
+
+✅ Throw exception for negative numbers (e.g., -1,-2)
+
+✅ Show all negative numbers in the exception
+
+Each step includes a test case followed by the minimal code change to make it pass.
+
+📌 Example Inputs & Outputs
+| Input        | Output                                      |
+| ------------ | ------------------------------------------- |
+| `""`         | 0                                           |
+| `"1"`        | 1                                           |
+| `"1,2"`      | 3                                           |
+| `"1\n2,3"`   | 6                                           |
+| `"//;\n1;2"` | 3                                           |
+| `"1,-2"`     | ❌ Error: "negative numbers not allowed: -2" |
+
+
+📃 License
+This project is licensed under the MIT License.
+```
