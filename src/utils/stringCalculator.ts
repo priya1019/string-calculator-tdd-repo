@@ -3,16 +3,27 @@ export function add(numbers: string): number {
   if (numbers === '') return 0;
 
   let delimiter = /,|\n/;
-  // If the input starts with '//', it indicates a custom delimiter
+  // Check for custom delimiter
   let numberString = numbers;
+
   if (numbers.startsWith('//')) {
-    // Split the input to extract the custom delimiter and the number string
+    // Extract the custom delimiter and the number string
     const parts = numbers.split('\n');
-    delimiter = new RegExp(parts[0].slice(2)); // Extract the custom delimiter
-    numberString = parts[1]; // The rest is the number string
+    // The first part contains the custom delimiter
+    delimiter = new RegExp(parts[0].slice(2));
+    // The second part contains the numbers
+    numberString = parts[1];
   }
-  // Split the number string using the determined delimiter
+  // Split the number string using the delimiter
   const splitNumbers = numberString.split(delimiter);
-  // Convert the split strings to integers and sum them up
-  return splitNumbers.reduce((sum, num) => sum + parseInt(num), 0);
+  const parsedNumbers = splitNumbers.map(Number);
+  // Convert the split strings to numbers and filter out negatives
+  const negatives = parsedNumbers.filter((n) => n < 0);
+  // If there are any negative numbers, throw an error
+  if (negatives.length > 0) {
+    // Join the negative numbers into a string for the error message
+    throw new Error(`negative numbers not allowed: ${negatives.join(',')}`);
+  }
+  // Return the sum of the numbers
+  return parsedNumbers.reduce((sum, num) => sum + num, 0);
 }
