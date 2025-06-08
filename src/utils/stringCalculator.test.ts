@@ -10,4 +10,7 @@ describe('String Calculator', () => {
   it('returns sum of two comma-separated numbers', () => {
     expect(add('1,2')).toBe(3);
   });
+  it('returns sum of multiple comma-separated numbers', () => {
+    expect(add('1,2,3,4')).toBe(10);
+  });
 });
