@@ -7,4 +7,7 @@ describe('String Calculator', () => {
   it('returns the number itself for single number input', () => {
     expect(add('5')).toBe(5);
   });
+  it('returns sum of two comma-separated numbers', () => {
+    expect(add('1,2')).toBe(3);
+  });
 });
